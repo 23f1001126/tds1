@@ -4,14 +4,14 @@ FROM python:3.12-slim-bookworm
 # Set the working directory
 WORKDIR /app
 
-# Install Node.js and npm
-RUN apt-get update && apt-get install -y nodejs npm
+# Install system dependencies (Node.js and npm)
+RUN apt-get update && apt-get install -y nodejs npm && apt-get clean
 
-# Install required Python packages
-RUN pip install uv pandas numpy faker matplotlib seaborn scikit-learn
-
-# Copy the application code
+# Copy the application code to the container
 COPY . .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the port the app runs on
 EXPOSE 8000
