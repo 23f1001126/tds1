@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y nodejs npm && apt-get clean
 # Copy the application code to the container
 COPY . .
 
-# Install Python dependencies directly
-RUN pip install --no-cache-dir uvicorn fastapi pandas numpy faker matplotlib seaborn scikit-learn
+# Install Python dependencies directly, including requests
+RUN pip install --no-cache-dir uvicorn fastapi pandas numpy faker matplotlib seaborn scikit-learn requests
 
 # Expose the port the app runs on
 EXPOSE 8000
