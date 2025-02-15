@@ -34,7 +34,7 @@ class TaskRequest(BaseModel):
 
 @app.get("/")
 def home():
-    return {"message": "Hello, this is for checking only!"}
+    return {"message": "I come here to talk to you about your microsoft warranty!"}
 
 @app.post("/run")
 async def run_task(request: TaskRequest):
@@ -149,7 +149,7 @@ def call_llm_to_extract_email(email_content):
     # Function to call the AI Proxy to extract email
     url = "https://api.aiproxy.com/run"
     headers = {
-        "Authorization": f"Bearer {os.environ['eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIzZjEwMDExMjZAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.3QkaprmKYPMvlAVRUGsNhhIYp6x0-Qd37RuL-yI40S4']}",
+        "Authorization": f"Bearer {os.environ['AIPROXY_TOKEN']}",
         "Content-Type": "application/json"
     }
     payload = {
@@ -162,7 +162,7 @@ def call_llm_to_extract_card_number(image_path):
     # Function to call the AI Proxy to extract card number from image
     url = "https://api.aiproxy.com/run"
     headers = {
-        "Authorization": f"Bearer {os.environ['eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIzZjEwMDExMjZAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.3QkaprmKYPMvlAVRUGsNhhIYp6x0-Qd37RuL-yI40S4']}",
+        "Authorization": f"Bearer {os.environ['AIPROXY_TOKEN']}",
         "Content-Type": "application/json"
     }
     payload = {
